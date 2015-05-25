@@ -7,22 +7,34 @@ public class BirdControl : MonoBehaviour {
 	private Rigidbody2D bird_rb;
 	
 	private float lookRotation;
+	private float birdXPos;
 
 	// Use this for initialization
 	void Start () {
 		bird_rb = bird.GetComponent<Rigidbody2D>();
+		
+		birdXPos = bird.transform.position.x;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		userInput ();
 		birdRotation ();
+		fixXPos ();
+	}
+
+	void fixXPos ()
+	{
+		Vector3 v3Position = bird.transform.position;
+		v3Position.x = birdXPos;
+		bird.transform.position = v3Position;
 	}
 
 	void userInput ()
 	{
 		if (Input.GetMouseButtonDown (0)) {
-			bird_rb.AddForce (new Vector2 (0, 2000), ForceMode2D.Impulse);
+			//bird_rb.AddForce (new Vector2 (0, 2000), ForceMode2D.Impulse);
+			bird_rb.velocity = new Vector2(0, 50);
 		}
 	}
 

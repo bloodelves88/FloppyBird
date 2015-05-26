@@ -8,6 +8,8 @@ public class PipeManager : MonoBehaviour {
 	private GameObject[] pipeTopArray;
 	private GameObject[] pipeBottomArray;
 	private GameObject[] passedPipeMarkArray;
+	
+	public bool pipesAreMoving;
 
 	// Use this for initialization
 	void Start () {	
@@ -22,17 +24,21 @@ public class PipeManager : MonoBehaviour {
 		
 		passedPipeMarkArray = new GameObject[NUM_OF_PIPE_PAIRS];
 		passedPipeMarkArray = GameObject.FindGameObjectsWithTag("PassedPipe");
+		
+		pipesAreMoving = true;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		movePipes ();
-		movePipesToBack ();
+		movePipesToBack();
+		if (pipesAreMoving == true) {
+			 movePipes();
+		}
 	}
 
 	void movePipesToBack ()
 	{
-		int topPipePosition = Random.Range(-85, -30);
+		int topPipePosition = Random.Range(-95, -45);
 		int bottomPipePosition = topPipePosition - 160;
 		foreach (GameObject pipeTop in pipeTopArray) {
 			if (pipeTop.transform.position.x < -625) {

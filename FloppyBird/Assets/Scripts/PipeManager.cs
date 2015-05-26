@@ -32,14 +32,16 @@ public class PipeManager : MonoBehaviour {
 
 	void movePipesToBack ()
 	{
+		int topPipePosition = Random.Range(-85, -30);
+		int bottomPipePosition = topPipePosition - 160;
 		foreach (GameObject pipeTop in pipeTopArray) {
 			if (pipeTop.transform.position.x < -625) {
-				pipeTop.transform.position = new Vector2 (-172, Random.Range (-75, -20));
+				pipeTop.transform.position = new Vector2 (-172, topPipePosition);
 			}
 		}
 		foreach (GameObject pipeBottom in pipeBottomArray) {
 			if (pipeBottom.transform.position.x < -625) {
-				pipeBottom.transform.position = new Vector2 (-172, Random.Range (-285, -225));
+				pipeBottom.transform.position = new Vector2 (-172, bottomPipePosition);
 			}
 		}
 		foreach (GameObject passedPipeMark in passedPipeMarkArray) {
@@ -52,7 +54,7 @@ public class PipeManager : MonoBehaviour {
 	void movePipes ()
 	{
 		foreach (GameObject pipePair in pipePairArray) {
-			pipePair.transform.Translate (new Vector2 (-1.0f, 0.0f));
+			pipePair.transform.Translate (new Vector2 (-1.25f, 0.0f));
 		}
 	}
 }

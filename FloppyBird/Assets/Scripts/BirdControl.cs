@@ -45,8 +45,8 @@ public class BirdControl : MonoBehaviour {
 			lookRotation = 50.0f;
 		}
 		else
-			if (bird_rb.velocity.y < -90.0f) {
-				lookRotation = -90.0f;
+			if (bird_rb.velocity.y < -75.0f) {
+				lookRotation = -75.0f;
 			}
 		bird.transform.rotation = Quaternion.Euler (0.0f, 0.0f, lookRotation);
 	}

@@ -1,5 +1,5 @@
 # About FloppyBird
-I made this Flappy Bird clone not with the purpose of making a revoluntionary new game with never before seen ideas, but with the aim to practice game programming.
+I made this Flappy Bird clone not with the purpose of making a revolutionary new game with never before seen ideas, but with the aim to practice game programming.
 
 # Aims
 1. Make a 2D game using the Unity game engine for the first time (have already made 3D games).
